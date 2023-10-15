@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 import './card-list.styles.css';
+import Card from "../card/card.component";
 
 class CardList extends Component {
     render() {
@@ -9,16 +10,8 @@ class CardList extends Component {
             <div className="card-list">
                 {monsters.map((monsters) => {
                     const {name, email, id} = monsters;
-                    return (
-                    <div className='card-container' key = {id}> 
-                        <img 
-                            alt={`monsters ${name}`}
-                            src={`https://robohash.org/${id}?set=set2&size=180x180`}
-                        />
-                        <h2>{name}</h2>
-                        <p>{email}</p>
-                    </div>
-                    )})}
+                    return <Card monster={monsters}/>
+                    })}
             </div>
         )
     }
